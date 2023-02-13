@@ -15,8 +15,12 @@ namespace Controllers
         private void Update()
         {
             float horizontal = Input.GetAxis("Horizontal");
-            _anim.SetFloat("moveSpeed", horizontal);
-            transform.Translate(Vector3.right * horizontal * _moveSpeed * Time.deltaTime);
+            _anim.SetFloat("moveSpeed", Mathf.Abs(horizontal));
+            transform.Translate(Vector2.right * horizontal * _moveSpeed * Time.deltaTime);
+            if(horizontal != 0)
+            {
+                transform.localScale = new Vector3(Mathf.Sign(horizontal),transform.localScale.y, transform.localScale.z);
+            }
         }
     }
 
