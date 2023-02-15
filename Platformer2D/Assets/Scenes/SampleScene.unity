@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 266579963}
   - component: {fileID: 266579964}
   - component: {fileID: 266579967}
+  - component: {fileID: 266579971}
   - component: {fileID: 266579968}
   - component: {fileID: 266579969}
   - component: {fileID: 266579970}
@@ -186,7 +187,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266579961}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 770b552d527e7d4468236bb4ca4c6fb8, type: 2}
   m_CullingMode: 0
@@ -286,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fc94e4b0ad9a140939821fc3d5ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 200
-  _horizontalSpeed: 10
+  _jumpForce: 5
+  _horizontalSpeed: 6
 --- !u!114 &266579968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,10 +329,24 @@ MonoBehaviour:
   - {fileID: 1467203931}
   - {fileID: 862013008}
   - {fileID: 122068455}
-  _maxRayLength: 0.15
+  _maxRayLength: 0.04
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &266579971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266579961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caad1cda5adbb648a712285aed5a499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallMultiplier: 2
+  _lowJumpMulitplier: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

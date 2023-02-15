@@ -7,7 +7,7 @@ namespace Inputs
     public class PcInput : IPlayerInput
     {
         public float HorizontalAxis => Input.GetAxis("Horizontal");
-        public bool IsJumpButton => Input.GetKey(KeyCode.Space);
+        public bool IsJumpButton => Input.GetButtonDown("Jump");   //buttondown? fallcontrol
     }
 
 }

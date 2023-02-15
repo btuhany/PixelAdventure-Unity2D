@@ -16,19 +16,18 @@ namespace Controllers
         CharacterAnimation _anim;
         RbMovement _rb;
         Flip _flip;
+        GroundCheck _groundCheck;
         private void Awake()
         {
             _rb= GetComponent<RbMovement>();
             _anim= GetComponent<CharacterAnimation>();
             _flip = GetComponent<Flip>();
+            _groundCheck = GetComponent<GroundCheck>();
             _input = new PcInput();
         }
         private void Update()
         {
-            
-            
-
-            if(_input.IsJumpButton)
+            if(_input.IsJumpButton && _groundCheck.IsOnGround)
             {
                 _isJumped = true;               
             }
@@ -40,7 +39,7 @@ namespace Controllers
         private void FixedUpdate()
         {
             _rb.HorizontalMove(_horizontalAxis);  //if a gameObject has rb, dont use transform for movement
-            if (_isJumped)
+            if (_isJumped )
             {
                 _rb.Jump();
                 _isJumped = false;

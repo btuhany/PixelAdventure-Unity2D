@@ -10,6 +10,9 @@ namespace Movements
         [SerializeField] float _maxRayLength=0.15f;
         [SerializeField] LayerMask _layerMask;
         bool _isOnGround;
+
+        public bool IsOnGround { get => _isOnGround; set => _isOnGround = value; }
+
         private void Update()
         {
             foreach(Transform rayOrigin in _rayOrigins)
