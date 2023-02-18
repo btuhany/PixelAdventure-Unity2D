@@ -15,6 +15,7 @@ namespace Movements
 
         Rigidbody2D _rb;
 
+        public float VelocityY => _rb.velocity.y;
         private void Awake()
         {
             _rb= GetComponent<Rigidbody2D>();

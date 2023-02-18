@@ -12,11 +12,19 @@ namespace Animations
         {
             _anim= GetComponent<Animator>();
         }
-        public void HorizontalAnimation(float horizontal)
+        public void HorizontalAnim(float horizontal)
         {
             float mathfValue = Mathf.Abs(horizontal);
             if (_anim.GetFloat("moveSpeed") == mathfValue) return;
             _anim.SetFloat("moveSpeed", mathfValue);
+        }
+        public void JumpAnFallAnim(bool isOnGround, float yVelocity)
+        {
+            _anim.SetBool("IsInAir", !isOnGround);
+            if (!isOnGround)
+            {
+                _anim.SetFloat("yVelocity", yVelocity);
+            }
         }
     }
 

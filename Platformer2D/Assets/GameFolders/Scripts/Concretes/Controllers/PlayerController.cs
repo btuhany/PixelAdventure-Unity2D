@@ -33,7 +33,8 @@ namespace Controllers
             }
 
             _horizontalAxis = _input.HorizontalAxis;
-            _anim.HorizontalAnimation(_horizontalAxis);
+            _anim.JumpAnFallAnim(_groundCheck.IsOnGround, _rb.VelocityY);
+            _anim.HorizontalAnim(_horizontalAxis);
             _flip.FlipCharacter(_horizontalAxis);
         }
         private void FixedUpdate()

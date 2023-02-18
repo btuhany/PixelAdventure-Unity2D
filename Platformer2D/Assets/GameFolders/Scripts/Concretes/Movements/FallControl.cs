@@ -12,12 +12,10 @@ namespace Movements
         [SerializeField] float _lowJumpMulitplier = 2f;
 
         Rigidbody2D _rb;
-        GroundCheck _groundCheck;
         IPlayerInput _input;
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _groundCheck = GetComponent<GroundCheck>();
             _input = new PcInput();
         }
         private void Update()
