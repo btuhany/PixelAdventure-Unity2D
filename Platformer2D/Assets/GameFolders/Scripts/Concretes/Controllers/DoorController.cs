@@ -10,15 +10,12 @@ public class DoorController : MonoBehaviour
     {
         _anim= GetComponent<Animator>();
     }
-    private void Update()
+    public void OpenDoor()
     {
-        if(Input.GetKeyDown(KeyCode.F)) 
-        {
-            _anim.SetBool("IsOpen", true);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            _anim.SetBool("IsOpen", false);
-        }
+        _anim.SetBool("IsOpen", true);
+    }
+    public void CloseDoor()
+    {
+        _anim.SetBool("IsOpen", false);
     }
 }
