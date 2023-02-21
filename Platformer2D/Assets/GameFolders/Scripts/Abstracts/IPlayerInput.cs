@@ -8,5 +8,6 @@ namespace Abstracts.Input
     {
         float HorizontalAxis { get; }
         bool IsJumpButton { get; }
+        bool IsDownButton { get; }
     }
 }

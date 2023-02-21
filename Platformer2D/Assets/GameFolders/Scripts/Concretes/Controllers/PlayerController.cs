@@ -17,22 +17,27 @@ namespace Controllers
         RbMovement _rb;
         Flip _flip;
         GroundCheck _groundCheck;
+        PlatformHandler _platform;
         private void Awake()
         {
             _rb= GetComponent<RbMovement>();
             _anim= GetComponent<CharacterAnimation>();
             _flip = GetComponent<Flip>();
             _groundCheck = GetComponent<GroundCheck>();
+            _platform = GetComponent<PlatformHandler>();
             _input = new PcInput();
         }
         private void Update()
         {
-            if(_input.IsJumpButton && _groundCheck.IsOnGround)
+            _horizontalAxis = _input.HorizontalAxis;
+            if (_input.IsJumpButton && _groundCheck.IsOnGround)
             {
                 _isJumped = true;               
             }
+            if(_input.IsDownButton)
+                _platform.DisableCollider();
 
-            _horizontalAxis = _input.HorizontalAxis;
+           
             _anim.JumpAnFallAnim(_groundCheck.IsOnGround, _rb.VelocityY);
             _anim.HorizontalAnim(_horizontalAxis);
             _flip.FlipCharacter(_horizontalAxis);

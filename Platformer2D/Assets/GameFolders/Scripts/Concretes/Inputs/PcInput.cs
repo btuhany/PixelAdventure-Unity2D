@@ -8,6 +8,7 @@ namespace Inputs
     {
         public float HorizontalAxis => Input.GetAxis("Horizontal");
         public bool IsJumpButton => Input.GetButtonDown("Jump");   //buttondown? fallcontrol
+        public bool IsDownButton => Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
     }
 
 }
