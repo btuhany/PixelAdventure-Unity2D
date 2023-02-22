@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class PlatformTrapController : MonoBehaviour
 {
+    Rigidbody2D _rb;
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _rb.isKinematic= false;
+            _rb.gravityScale = 2f;
+            Destroy(this.gameObject,1.5f);
+        }
     }
 }
