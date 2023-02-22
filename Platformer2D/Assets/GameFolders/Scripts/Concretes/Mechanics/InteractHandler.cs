@@ -24,7 +24,7 @@ public class InteractHandler : MonoBehaviour
     {
         if (_currentInteractableObject != null)
         {
-            _currentInteractableObject.gameObject.GetComponent<LeverController>().TriggerLever();
+            _currentInteractableObject.gameObject.GetComponent<LeverController>().LeverInteraction();
         }
     }
 }
