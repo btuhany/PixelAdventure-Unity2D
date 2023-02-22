@@ -1,30 +1,35 @@
+using Controllers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractHandler : MonoBehaviour
+namespace Mechanics
 {
- 
-    GameObject _currentInteractableObject;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class InteractHandler : MonoBehaviour
     {
 
-        if (collision.gameObject.CompareTag("InteractableObject"))
+        GameObject _currentInteractableObject;
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            _currentInteractableObject = collision.gameObject;
+
+            if (collision.gameObject.CompareTag("InteractableObject"))
+            {
+                _currentInteractableObject = collision.gameObject;
+            }
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+
+            _currentInteractableObject = null;
+        }
+
+        public void Interact()
+        {
+            if (_currentInteractableObject != null)
+            {
+                _currentInteractableObject.gameObject.GetComponent<LeverController>().LeverInteraction();
+            }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
 
-        _currentInteractableObject = null;
-    }
-
-    public void Interact()
-    {
-        if (_currentInteractableObject != null)
-        {
-            _currentInteractableObject.gameObject.GetComponent<LeverController>().LeverInteraction();
-        }
-    }
 }

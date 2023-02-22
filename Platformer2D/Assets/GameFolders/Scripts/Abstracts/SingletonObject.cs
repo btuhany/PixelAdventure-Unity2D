@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonObject<T> : MonoBehaviour
+namespace Abstracts
 {
-    public static T Instance { get; private set; }
-    protected void SingletonThisObject(T entity)
+    public class SingletonObject<T> : MonoBehaviour
     {
-        if (Instance == null)
+        public static T Instance { get; private set; }
+        protected void SingletonThisObject(T entity)
         {
-            Instance = entity;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
+            if (Instance == null)
+            {
+                Instance = entity;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
+
 }

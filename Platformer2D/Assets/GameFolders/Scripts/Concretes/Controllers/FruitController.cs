@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Managers;
 
-
-public class FruitController : MonoBehaviour
+namespace Controllers
 {
-    [SerializeField] Fruits _fruitType;
-    Animator _anim;
-    private void Awake()
+    public class FruitController : MonoBehaviour
     {
-        _anim= GetComponent<Animator>();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        [SerializeField] Fruits _fruitType;
+        Animator _anim;
+        private void Awake()
         {
-            FruitManager.Instance.IncreaseFruitNumber(_fruitType);
-            _anim.Play("Collected");
-            Destroy(this.gameObject,0.5f);
+            _anim = GetComponent<Animator>();
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                FruitManager.Instance.IncreaseFruitNumber(_fruitType);
+                _anim.Play("Collected");
+                Destroy(this.gameObject, 0.5f);
+            }
         }
     }
 }
+

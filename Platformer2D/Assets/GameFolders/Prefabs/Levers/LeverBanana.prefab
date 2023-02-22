@@ -142,7 +142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6752753090832234498}
   m_LocalRotation: {x: 0, y: 0, z: -0.15255454, w: 0.988295}
-  m_LocalPosition: {x: 0.73, y: 0.29, z: 0}
+  m_LocalPosition: {x: 0.73, y: 0.29, z: -1.9}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,9 +252,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 941747479654062626, guid: 7c5446c92f916114489c1f5dcb118af4, type: 3}
+      propertyPath: _leverFruits
+      value: 
+      objectReference: {fileID: 5944138109829519581}
     - target: {fileID: 941747479654062638, guid: 7c5446c92f916114489c1f5dcb118af4, type: 3}
       propertyPath: m_Name
-      value: LeverBanana (1)
+      value: LeverBanana
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411278697603180236, guid: 7c5446c92f916114489c1f5dcb118af4, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5446c92f916114489c1f5dcb118af4, type: 3}
