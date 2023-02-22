@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51629
+  controlID: 98
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -98,18 +98,18 @@ MonoBehaviour:
       y: 21
       width: 891
       height: 905
-    m_Scale: {x: 0.5379755, y: 0.5379755}
-    m_Translation: {x: 447.69254, y: 452.5}
+    m_Scale: {x: 0.49630666, y: 0.49630666}
+    m_Translation: {x: 476.4544, y: 452.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -832.1802
-      y: -841.1164
-      width: 1656.2092
-      height: 1682.2328
+      x: -960.00006
+      y: -911.7347
+      width: 1795.261
+      height: 1823.4694
     m_MinimalGUI: 1
   m_defaultScale: 0.4640625
   m_LastWindowPixelSize: {x: 891, y: 926}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 51700
+  controlID: 75
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -162,8 +162,8 @@ MonoBehaviour:
     y: 0
     width: 649
     height: 551
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -200,9 +200,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0004ffff
-      m_LastClickedID: -64512
-      m_ExpandedIDs: dc00ffff2215ffff2e44ffffd24effffccf7ffff04fbffff3061000090610000
+      m_SelectedIDs: a2610000
+      m_LastClickedID: 24994
+      m_ExpandedIDs: 0afbffffa2610000be610000d4610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -247,13 +247,13 @@ MonoBehaviour:
     height: 396
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 8}
+  m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 7}
   - {fileID: 8}
   - {fileID: 9}
   - {fileID: 10}
-  m_Selected: 1
+  m_Selected: 0
   m_LastSelected: 3
 --- !u!114 &7
 MonoBehaviour:
@@ -277,7 +277,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 624
-    width: 404
+    width: 648
     height: 375
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -296,22 +296,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/AssetFolders/Thirdparty/Pixel Adventure 1/Assets/Terrain
+    - Assets/AssetFolders/Thirdparty/Pixel Adventure 1/Assets/Items/Fruits
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/AssetFolders/Thirdparty/Pixel Adventure 1/Assets/Terrain
+  - Assets/AssetFolders/Thirdparty/Pixel Adventure 1/Assets/Items/Fruits
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\unityworkspace2\PuzzlePlatformer-Unity2D\Platformer2D
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 38730000
-    m_LastClickedID: 29496
-    m_ExpandedIDs: ffffffff00000000206300003063000032630000386300003a630000ec710000707200005a7b000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 88740000
+    m_LastClickedID: 29832
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc630000c2630000d8630000786e0000d27200005673000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -339,7 +339,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6e630000
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000002063000032630000386300003a63000000ca9a3b
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,10 +364,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 20f8feff
-    m_LastClickedInstanceID: -67552
+    m_SelectedInstanceIDs: a2610000
+    m_LastClickedInstanceID: 24994
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000a861000034610000ae66000016670000f260000098670000aa600000be6000009c6000001860000054660000d46700008062000072690000726600001e7b000088650000
+    m_ExpandedInstanceIDs: c6230000a861000034610000ae66000016670000f260000098670000aa600000be6000009c6000001860000054660000d46700008062000072690000726600001e7b000088650000d8620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -449,9 +449,9 @@ MonoBehaviour:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2ea70000
-    m_LastClickedID: 42798
-    m_ExpandedIDs: ffffffff000000002063000032630000386300003a630000e86d000000ca9a3b
+    m_SelectedIDs: c6630000
+    m_LastClickedID: 25542
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc63000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,7 +479,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 3a630000
     m_LastClickedID: 25402
-    m_ExpandedIDs: ffffffff000000002063000032630000386300003a63000000ca9a3b
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -504,10 +504,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0004ffff
-    m_LastClickedInstanceID: -64512
+    m_SelectedInstanceIDs: a2610000
+    m_LastClickedInstanceID: 24994
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 
+    m_ExpandedInstanceIDs: d6620000d8630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: LeverActive
@@ -518,7 +518,7 @@ MonoBehaviour:
         y: 0
         width: 0
         height: 0
-      m_UserData: -67552
+      m_UserData: 25422
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 624
-    width: 741
+    width: 648
     height: 375
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -604,22 +604,22 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/AssetFolders/Art
+    - Assets/GameFolders/Scripts/Concretes/Mechanics
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/AssetFolders/Art
+  - Assets/GameFolders/Scripts/Concretes/Mechanics
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\unityworkspace2\PuzzlePlatformer-Unity2D\Platformer2D
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 16a70000
-    m_LastClickedID: 42774
-    m_ExpandedIDs: ffffffff00000000206300003063000032630000386300003a63000000ca9a3b
+    scrollPos: {x: 0, y: 13}
+    m_SelectedIDs: 20870000
+    m_LastClickedID: 34592
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc630000c2630000d063000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -647,7 +647,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 16e8ffff
     m_LastClickedID: -6122
-    m_ExpandedIDs: ffffffff000000002063000032630000386300003a63000000ca9a3b
+    m_ExpandedIDs: 00000000b6630000b8630000ba630000bc630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -672,21 +672,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0004ffff
-    m_LastClickedInstanceID: -64512
+    m_SelectedInstanceIDs: a2610000
+    m_LastClickedInstanceID: 24994
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 5a80ffff1aa70000
+    m_ExpandedInstanceIDs: 5a80ffff1aa70000d6620000d8630000dc620000f0630000fa630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Art
-      m_OriginalName: Art
+      m_Name: InteractHandler
+      m_OriginalName: InteractHandler
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 42774
+      m_UserData: 34596
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

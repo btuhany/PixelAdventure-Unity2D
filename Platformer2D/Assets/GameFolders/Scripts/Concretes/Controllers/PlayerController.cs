@@ -18,6 +18,7 @@ namespace Controllers
         Flip _flip;
         GroundCheck _groundCheck;
         PlatformHandler _platform;
+        InteractHandler _interact;
         private void Awake()
         {
             _rb= GetComponent<RbMovement>();
@@ -25,6 +26,7 @@ namespace Controllers
             _flip = GetComponent<Flip>();
             _groundCheck = GetComponent<GroundCheck>();
             _platform = GetComponent<PlatformHandler>();
+            _interact = GetComponent<InteractHandler>();
             _input = new PcInput();
         }
         private void Update()
@@ -36,7 +38,10 @@ namespace Controllers
             }
             if(_input.IsDownButton)
                 _platform.DisableCollider();
-
+            if(_input.IsInteractButton)
+            {
+                _interact.Interact();
+            }
            
             _anim.JumpAnFallAnim(_groundCheck.IsOnGround, _rb.VelocityY);
             _anim.HorizontalAnim(_horizontalAxis);
