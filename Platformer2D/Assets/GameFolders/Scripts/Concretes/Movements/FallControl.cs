@@ -22,7 +22,7 @@ namespace Movements
         {
             if (_rb.velocity.y < 0)
                 _rb.velocity += Vector2.up * Physics2D.gravity.y * _fallMultiplier * Time.deltaTime;
-            else if (_rb.velocity.y > 0.01 && !Input.GetKey(KeyCode.Space))
+            else if (_rb.velocity.y > 0.01 && !_input.IsJumpButton)
             {
                 _rb.velocity += Vector2.up * Physics2D.gravity.y * _lowJumpMulitplier * Time.deltaTime;
             }

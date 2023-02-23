@@ -26,6 +26,10 @@ namespace Animations
                 _anim.SetFloat("yVelocity", yVelocity);
             }
         }
+        public void TakeHitAnim(bool isInvulnerable)
+        {
+            _anim.SetBool("TakeHit", isInvulnerable);
+        }
     }
 
 }

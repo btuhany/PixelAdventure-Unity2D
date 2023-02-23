@@ -33,7 +33,7 @@ namespace Controllers
         private void Update()
         {
             _horizontalAxis = _input.HorizontalAxis;
-            if (_input.IsJumpButton && _groundCheck.IsOnGround)
+            if (_input.IsJumpButtonDown && _groundCheck.IsOnGround)
             {
                 _isJumped = true;               
             }
