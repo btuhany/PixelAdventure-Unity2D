@@ -24,8 +24,8 @@ namespace Movements
         private void CheckOnGround(Transform rayOrigin)
         {
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin.position, Vector2.down, _maxRayLength,_layerMask);
-            Debug.DrawRay(rayOrigin.position, Vector2.down* _maxRayLength, Color.red);
-            if(hit.collider != null)
+            // Debug.DrawRay(rayOrigin.position, Vector2.down* _maxRayLength, Color.red);
+            if(hit.collider != null && !hit.collider.CompareTag("Trap"))
                 _isOnGround= true;
             else
                 _isOnGround = false;

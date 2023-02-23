@@ -43,19 +43,19 @@ namespace Managers
                 _fruits[fruit] = 0;
             }
         }
-        private void Update()
-        {
-            //Delete update
-            Debug.Log("-------------------------------");
-            Debug.Log("-------------------------------");
-            Debug.Log("-------------------------------");
-            Debug.Log("-------------------------------");
-            Debug.Log("-------------------------------");
-            Debug.Log("Melon " + _fruits[Fruits.Melon]);
-            Debug.Log("Banana" + _fruits[Fruits.Banana]);
-            Debug.Log("Pineapple" + _fruits[Fruits.Pineapple]);
+        //private void Update()
+        //{
+        //    //Delete update
+        //    Debug.Log("-------------------------------");
+        //    Debug.Log("-------------------------------");
+        //    Debug.Log("-------------------------------");
+        //    Debug.Log("-------------------------------");
+        //    Debug.Log("-------------------------------");
+        //    Debug.Log("Melon " + _fruits[Fruits.Melon]);
+        //    Debug.Log("Banana" + _fruits[Fruits.Banana]);
+        //    Debug.Log("Pineapple" + _fruits[Fruits.Pineapple]);
 
-        }
+        //}
     }
 
 }

@@ -18,6 +18,5 @@ public class CheckpointController : MonoBehaviour
     {
         _isChecked = true;
         _anim.SetBool("FlagOut", true);
-
     }
 }

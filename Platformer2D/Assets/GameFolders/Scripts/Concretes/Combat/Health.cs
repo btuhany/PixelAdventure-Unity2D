@@ -1,4 +1,5 @@
 using Animations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,19 +21,28 @@ public class Health : MonoBehaviour
         _anim = GetComponent<CharacterAnimation>();
         _currentHealth = _maxHealth;
     }
+    private void OnEnable()
+    {
+        OnDead += HandleOnDead;
+    }
+
+    private void HandleOnDead()
+    {
+        _currentHealth = _maxHealth;
+        _anim.AppearAnim(0.4f);
+    }
+
     public void TakeHit(Damage damage)
     {
-        if (IsDead || _isInvulnerable) 
+        if (_isInvulnerable) 
         { 
             return; 
         }
         
         _currentHealth -= damage.HitDamage;
-
-        if(IsDead) 
-            OnDead?.Invoke(); 
-
         StartCoroutine(HitCooldown());
+        if (IsDead)
+            OnDead?.Invoke();
     }
     IEnumerator HitCooldown()
     {

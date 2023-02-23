@@ -6,6 +6,7 @@ TagManager:
   tags:
   - OneWayPlatform
   - InteractableObject
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Middleground
   - Foreground
   - Player
-  - Background
+  - Checkpoints
   - 
   - 
   - 

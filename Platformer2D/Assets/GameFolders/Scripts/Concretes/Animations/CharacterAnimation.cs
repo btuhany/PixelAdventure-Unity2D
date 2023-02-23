@@ -7,10 +7,20 @@ namespace Animations
     [RequireComponent(typeof(Animator))]
     public class CharacterAnimation : MonoBehaviour
     {
+        [SerializeField] float _appearAnimPostDelay;
         Animator _anim;
         private void Awake()
         {
             _anim= GetComponent<Animator>();
+        }
+        private void OnEnable()
+        {
+            AppearAnim(_appearAnimPostDelay);
+        }
+        public void AppearAnim(float delay)
+        {
+            _anim.SetBool("IsAppearing", true);
+            StartCoroutine(AnimationFinishDelay(delay));
         }
         public void HorizontalAnim(float horizontal)
         {
@@ -29,6 +39,12 @@ namespace Animations
         public void TakeHitAnim(bool isInvulnerable)
         {
             _anim.SetBool("TakeHit", isInvulnerable);
+        }
+
+        IEnumerator AnimationFinishDelay(float time)
+        {
+            yield return new WaitForSeconds(time);
+            _anim.SetBool("IsAppearing", false);
         }
     }
 
