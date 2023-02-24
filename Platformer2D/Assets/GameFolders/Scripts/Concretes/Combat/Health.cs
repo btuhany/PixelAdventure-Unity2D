@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+
+//Delete public
 public class Health : MonoBehaviour
 {
     [SerializeField] int _maxHealth;
