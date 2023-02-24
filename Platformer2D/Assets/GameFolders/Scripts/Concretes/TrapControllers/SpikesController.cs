@@ -17,8 +17,8 @@ public class SpikesController : MonoBehaviour
     {
         _targetHealth = collision.gameObject.GetComponent<Health>();
         _hitDamage.HitTarget(_targetHealth);
-        
-        _rb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+        _rb = collision.attachedRigidbody;
         _rb.velocity = Vector2.zero;
         _rb.AddForce(Vector2.up * _hitJumpForce);
     }

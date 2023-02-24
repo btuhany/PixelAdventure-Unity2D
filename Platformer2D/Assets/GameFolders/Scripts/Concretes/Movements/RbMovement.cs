@@ -3,6 +3,7 @@ using Inputs;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.Windows;
 
 namespace Movements
@@ -23,12 +24,14 @@ namespace Movements
         public void Jump()
         {
             _rb.velocity = Vector2.up * _jumpForce;
-            //_rb.velocity = new Vector2(_rb.velocity.x, 0f);
             // _rb.AddForce(Vector2.up * _jumpForce);
         }
         public void HorizontalMove(float direction)
         {
-            _rb.position += Vector2.right * direction * _horizontalSpeed * Time.deltaTime;
+
+
+            //_rb.position += Vector2.right * direction * _horizontalSpeed * Time.deltaTime;
+            _rb.velocity = new Vector2(direction * _horizontalSpeed, _rb.velocity.y);
         }
 
     }
