@@ -2,33 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesController : MonoBehaviour
+namespace Controllers
 {
-    [SerializeField] float _hitJumpForce;
-    Rigidbody2D _rb;
-    Damage _hitDamage;
-    Health _targetHealth;
+    public class SpikesController : Traps
+    {
+        private void Awake()
+        {
+            _hitDamage = GetComponent<Damage>();
+        }
 
-    private void Awake()
-    {
-        _hitDamage = GetComponent<Damage>();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        HitTarget(collision);
-        MakeTargetJump(collision);
-    }
-    void HitTarget(Collider2D collision)
-    {
-        _targetHealth = collision.gameObject.GetComponent<Health>();
-        if (_targetHealth != null)
-            _hitDamage.HitTarget(_targetHealth);
-    }
-    private void MakeTargetJump(Collider2D collision)
-    {
-        _rb = collision.attachedRigidbody;
-        _rb.velocity = Vector2.zero;
-        _rb.AddForce(Vector2.up * _hitJumpForce);
-    }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            HitTarget(collision);
+            MakeTargetJump(collision);
+        }
 
+
+    }
 }
+

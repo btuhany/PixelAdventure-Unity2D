@@ -3,32 +3,35 @@ using Movements;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TrambolineController : MonoBehaviour
+namespace Controllers
 {
-    [SerializeField] float _hitJumpForce;
-    Rigidbody2D _rb;
-    Animator _anim;
-    private void Awake()
+    public class TrambolineController : MonoBehaviour
     {
-        _anim= GetComponent<Animator>();
-    }
+        [SerializeField] float _hitJumpForce;
+        Rigidbody2D _rb;
+        Animator _anim;
+        private void Awake()
+        {
+            _anim = GetComponent<Animator>();
+        }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        TargetRbAction(collision);
-        PlayAnimation();
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            TargetRbAction(collision);
+            PlayAnimation();
+        }
+        private void TargetRbAction(Collision2D collision)
+        {
+            _rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (_rb != null)
+                _rb.AddForce(Vector2.up * _hitJumpForce);
+        }
+        void PlayAnimation()
+        {
+            _anim.SetTrigger("IsJumped");
+        }
+
+
     }
-    private void TargetRbAction(Collision2D collision)
-    {
-        _rb = collision.gameObject.GetComponent<Rigidbody2D>();
-        if (_rb != null)
-            _rb.AddForce(Vector2.up * _hitJumpForce);
-    }
-    void PlayAnimation()
-    {
-        _anim.SetTrigger("IsJumped");
-    }
-   
 
 }
