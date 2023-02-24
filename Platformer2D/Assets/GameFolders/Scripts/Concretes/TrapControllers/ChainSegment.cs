@@ -17,13 +17,11 @@ public class ChainSegment : MonoBehaviour
         _currentTime += Time.deltaTime;
         if (_currentTime>_maxTime)
         {          
-            if(transform.rotation.z<100)
+            if(transform.rotation.z>0)
                 transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - _zRotation);
             else
                 transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + _zRotation);
             _currentTime = 0;
         }
-        Debug.Log(transform.rotation.z);
-        
     }
 }

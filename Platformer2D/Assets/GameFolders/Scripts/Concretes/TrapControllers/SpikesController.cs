@@ -15,13 +15,20 @@ public class SpikesController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        HitTarget(collision);
+        MakeTargetJump(collision);
+    }
+    void HitTarget(Collider2D collision)
+    {
         _targetHealth = collision.gameObject.GetComponent<Health>();
-        if(_targetHealth!= null )
+        if (_targetHealth != null)
             _hitDamage.HitTarget(_targetHealth);
-
+    }
+    private void MakeTargetJump(Collider2D collision)
+    {
         _rb = collision.attachedRigidbody;
         _rb.velocity = Vector2.zero;
         _rb.AddForce(Vector2.up * _hitJumpForce);
     }
-    
+
 }
