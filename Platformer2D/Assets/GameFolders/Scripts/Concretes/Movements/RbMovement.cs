@@ -15,7 +15,7 @@ namespace Movements
         [SerializeField] float _horizontalSpeed=10f;
 
         Rigidbody2D _rb;
-
+        public float HorizontalDirection;
         public float VelocityY => _rb.velocity.y;
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace Movements
         }
         public void HorizontalMove(float direction)
         {
-
+            HorizontalDirection = direction;
 
             //_rb.position += Vector2.right * direction * _horizontalSpeed * Time.deltaTime;
             _rb.velocity = new Vector2(direction * _horizontalSpeed, _rb.velocity.y);
