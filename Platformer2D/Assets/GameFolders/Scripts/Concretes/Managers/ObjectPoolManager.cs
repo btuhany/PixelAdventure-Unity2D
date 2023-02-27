@@ -28,22 +28,22 @@ public class ObjectPoolManager : SingletonObject<ObjectPoolManager>
                 AddableToObjectPool newObject = Instantiate(_prefabs[i]);
                 newObject.gameObject.SetActive(false);
                 newObject.transform.parent = this.transform;
-                //objectQueue.Enqueue(newObject);
+                objectQueue.Enqueue(newObject);
             }
             _objectsDictionary.Add((PoolObjectsEnum)i, objectQueue);
         }
     }
-    private void SetPool(AddableToObjectPool newObj)   //add to pool
+    public void SetPool(AddableToObjectPool newObj)   //add to pool
     {
         newObj.gameObject.SetActive(false);
         newObj.transform.parent = this.transform;
         Queue<AddableToObjectPool> gameObjectsQueue = _objectsDictionary[newObj.ObjectType];
         gameObjectsQueue.Enqueue(newObj);
     }
-    private AddableToObjectPool GetFromPool(PoolObjectsEnum newObjectType)
+    public AddableToObjectPool GetFromPool(PoolObjectsEnum newObjectType)
     {
         Queue<AddableToObjectPool> gameObjectsQueue = _objectsDictionary[newObjectType];
-        if(gameObjectsQueue.Count == 0) 
+        if (gameObjectsQueue.Count == 0)
         {
             AddableToObjectPool newObj = Instantiate(_prefabs[(int)newObjectType]);
             gameObjectsQueue.Enqueue(newObj);

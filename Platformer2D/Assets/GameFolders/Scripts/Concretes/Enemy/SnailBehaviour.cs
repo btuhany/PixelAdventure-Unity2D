@@ -50,8 +50,12 @@ namespace EnemyAI
         }
         private void OnCollisionStay2D(Collision2D collision)
         {
-            MakeTargetJump(collision);
-            HitTarget(collision);
+            if(collision.gameObject.CompareTag("Player"))
+            {
+                HitTarget(collision);
+                MakeTargetJump(collision);
+            }
+
         }
         void GetRandomHorizontalAxis()
         {

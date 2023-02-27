@@ -8,6 +8,9 @@ public class TrunkBehaviour : Enemies
 {
     [SerializeField] float _maxChangeDirectionTime;
     [SerializeField] float _maxAttackTime;
+    [SerializeField] Transform _projectileSpawnTransform;
+    [SerializeField] Transform _projectiles;
+    [SerializeField] bool _dontChangeDirection;
     float _horizontalDirection;
     float _currentTime;
     bool _isPlayerFound;
@@ -15,6 +18,7 @@ public class TrunkBehaviour : Enemies
     WallCheck _playerCheck;
     RbMovement _rbMovement;
     Animator _anim;
+    
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -46,6 +50,7 @@ public class TrunkBehaviour : Enemies
     }
     void ChangeDirectionWithTime()
     {
+        if (_dontChangeDirection) return;
         _currentTime += Time.deltaTime;
         if (_currentTime > _maxChangeDirectionTime)
         {
@@ -60,6 +65,11 @@ public class TrunkBehaviour : Enemies
         if (_currentTime > _maxAttackTime)
         {
             _anim.SetTrigger("IsAttack");
+            AddableToObjectPool projectile = ObjectPoolManager.Instance.GetFromPool(PoolObjectsEnum.TrunkBullet);
+            projectile.transform.SetParent(_projectiles);
+            projectile.transform.position = _projectileSpawnTransform.position;
+            projectile.transform.localScale = new Vector2(_horizontalDirection, 1);
+            projectile.gameObject.SetActive(true);
             _currentTime = 0;
         }
     }
@@ -76,4 +86,13 @@ public class TrunkBehaviour : Enemies
            
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            HitTarget(collision);
+            MakeTargetJump(collision);
+        }
+    }
 }
+
