@@ -8,7 +8,6 @@ namespace EnemyAI
 {
     public class SnailBehaviour : Enemies
     {
-
         float _horizontalAxisDirection;
         RbMovement _rbMovement;
         Flip _flip;
@@ -52,8 +51,21 @@ namespace EnemyAI
         {
             if(collision.gameObject.CompareTag("Player"))
             {
-                HitTarget(collision);
-                MakeTargetJump(collision);
+                if(collision.GetContact(0).normal.y==-1)
+                {
+                    MakeTargetJump(collision);
+
+                    AddableToObjectPool deathFx = ObjectPoolManager.Instance.GetFromPool(PoolObjectsEnum.DeathEfx);
+                    deathFx.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -4.3f);
+                    deathFx.gameObject.SetActive(true);
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    HitTarget(collision);
+                    MakeTargetJump(collision);
+                }
+
             }
 
         }
