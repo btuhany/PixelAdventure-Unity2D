@@ -26,6 +26,7 @@ namespace Movements
                 if (_isThereWall) break;
 
             }
+           
         }
         void CheckWalls(Transform rayOrigin)
         {

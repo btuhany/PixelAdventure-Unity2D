@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4033263654450577563}
   - component: {fileID: 4033263654450577540}
   - component: {fileID: 4033263654450577541}
+  - component: {fileID: 6060854686102233138}
   - component: {fileID: 4033263654450577562}
   - component: {fileID: 4033263654450577538}
   - component: {fileID: 4033263654450577543}
@@ -84,12 +85,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitJumpForce: 300
-  _playerTransform: {fileID: 0}
-  _rayOrigins: {fileID: 4033263653672390807}
-  _maxRayLength: 0.35
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &4033263654450577540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +111,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 10
-  _horizontalSpeed: 1
+  _horizontalSpeed: 0.84
+--- !u!114 &6060854686102233138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033263654450577539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf76b0a709078547a09a3b80957eb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayOrigins:
+  - {fileID: 4033263653672390807}
+  _maxRayLength: 0.2
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &4033263654450577562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +214,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4033263654450577536
 BoxCollider2D:
   m_ObjectHideFlags: 0

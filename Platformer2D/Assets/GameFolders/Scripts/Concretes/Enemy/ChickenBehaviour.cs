@@ -5,14 +5,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ChickenBehaviour : MonoBehaviour
+public class ChickenBehaviour : Enemies
 {
     [SerializeField] float _inRangeSpeed;
    
     float _horizontalAxis;
     Vector3 _startPosition;
-
- 
 
     private enum State
     {
@@ -27,6 +25,7 @@ public class ChickenBehaviour : MonoBehaviour
     WallCheck _wallCheck;
     TargetDetection _targetDetection;
     GroundCheck _groundCheck;
+
    
 
     private void Awake()
@@ -37,6 +36,7 @@ public class ChickenBehaviour : MonoBehaviour
         _flip = GetComponent<Flip>();
         _rbMovement = GetComponent<RbMovement>();
         _targetDetection = GetComponent<TargetDetection>();
+        _hitDamage = GetComponent<Damage>();
     }
     private void Start()
     {
@@ -69,6 +69,11 @@ public class ChickenBehaviour : MonoBehaviour
         {
             _rbMovement.Jump();
         }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        MakeTargetJump(collision);
+        HitTarget(collision);
     }
     private void StateControl()
     {
