@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class TrunkBulletController : Enemies
 {
-    [SerializeField] RbMovement _trunkRb;
+    
     RbMovement _rbMovement;
     float _direction;
+
+    public float Direction { get => _direction; set => _direction = value; }
 
     private void Awake()
     {
@@ -16,7 +18,7 @@ public class TrunkBulletController : Enemies
     }
     private void OnEnable()
     {
-        _direction = _trunkRb.HorizontalDirection;
+        _direction = 1;
     }
     private void FixedUpdate()
     {

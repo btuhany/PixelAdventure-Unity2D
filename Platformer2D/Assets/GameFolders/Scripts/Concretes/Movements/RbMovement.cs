@@ -32,7 +32,7 @@ namespace Movements
         }
         public void HorizontalMove(float direction)
         {
-            HorizontalDirection = Mathf.Sign(direction)/direction;
+            HorizontalDirection = Mathf.Sign(direction);
 
             //_rb.position += Vector2.right * direction * _horizontalSpeed * Time.deltaTime;
             _rb.velocity = new Vector2(direction * _horizontalSpeed, _rb.velocity.y);

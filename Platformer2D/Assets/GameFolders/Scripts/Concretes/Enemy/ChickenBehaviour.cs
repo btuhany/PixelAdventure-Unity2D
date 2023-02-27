@@ -60,6 +60,7 @@ public class ChickenBehaviour : Enemies
         }
  
         _flip.FlipCharacter(_horizontalAxis);
+
     }
 
     private void FixedUpdate()
