@@ -54,11 +54,11 @@ namespace EnemyAI
                 if(collision.GetContact(0).normal.y==-1)
                 {
                     MakeTargetJump(collision);
-
+                    _anim.SetTrigger("IsHit");
                     AddableToObjectPool deathFx = ObjectPoolManager.Instance.GetFromPool(PoolObjectsEnum.DeathEfx);
                     deathFx.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -4.3f);
                     deathFx.gameObject.SetActive(true);
-                    Destroy(gameObject);
+                    Destroy(gameObject,0.5f);
                 }
                 else
                 {
