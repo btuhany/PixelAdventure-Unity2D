@@ -14,7 +14,6 @@ namespace EnemyAI
         Animator _anim;
         float _horizontalAxisDirection;
 
-
         //WallCheck
         [SerializeField] Transform _rayOrigins;
         [SerializeField] float _maxRayLength = 0.5f;

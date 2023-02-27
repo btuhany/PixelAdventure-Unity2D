@@ -1,106 +1,132 @@
 using Movements;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using Unity.VisualScripting;
 using UnityEngine;
 
-namespace EnemyAI
+public class ChickenBehaviour : MonoBehaviour
 {
-    public class ChickenBehaviour : MonoBehaviour
+    [SerializeField] float _inRangeSpeed;
+   
+    float _horizontalAxis;
+    Vector3 _startPosition;
+
+ 
+
+    private enum State
     {
+        Detection,
+        ChaseTarget,
+        ChaseOver
+    }
+    State _currentState;
+    RbMovement _rbMovement;
+    Animator _anim;
+    Flip _flip;
+    WallCheck _wallCheck;
+    TargetDetection _targetDetection;
+    GroundCheck _groundCheck;
+   
+
+    private void Awake()
+    {
+        _groundCheck = GetComponent<GroundCheck>();
+        _wallCheck = GetComponent<WallCheck>();
+        _anim = GetComponent<Animator>();
+        _flip = GetComponent<Flip>();
+        _rbMovement = GetComponent<RbMovement>();
+        _targetDetection = GetComponent<TargetDetection>();
+    }
+    private void Start()
+    {
+        _startPosition = transform.position;
         
-        [SerializeField] Transform _rayOrigin2;
-        
-        [SerializeField] float _maxRayLength2;
-        
-        
-        bool _isOnGround;
-
-        [SerializeField] float _inRangeSpeed;
-        RbMovement _rbMovement;
-        Animator _anim;
-        Flip _flip;
-        WallCheck _wallCheck;
-        TargetDetection _targetDetection;
-        float _horizontalAxisDirection;
-        
-     
-       
-        private bool _chaseState;
-
-        private void Awake()
+    }
+    private void Update()
+    {
+        StateControl();
+        switch (_currentState)
         {
-            _wallCheck = GetComponent<WallCheck>();
-            _anim = GetComponent<Animator>();
-            _flip = GetComponent<Flip>();
-            _rbMovement = GetComponent<RbMovement>();  
-            _targetDetection = GetComponent<TargetDetection>();
+            case State.Detection:
+                Detection();
+                break;
+            case State.ChaseTarget:
+                ChaseTarget();
+                break;
+            case State.ChaseOver:
+                ChaseOver();
+                break;
         }
-        private void Start()
-        {
-            _horizontalAxisDirection = Random.Range(1, 3);
-            if (_horizontalAxisDirection == 2) _horizontalAxisDirection = -1;
-        }
-        private void Update()
-        {
-            _flip.FlipCharacter(_horizontalAxisDirection);
-
-            if(_targetDetection.IsTargetJustOut)
-                    StartCoroutine(OutOfRange());
-            
-            if(_targetDetection.IsTargetInRange)
-            {
-                _anim.SetBool("IsRunning", true);
-                if (_targetDetection.IsTargetOnLeft)
-                {
-                    _horizontalAxisDirection = -_inRangeSpeed;  
-                }
-                else if(_targetDetection.IsTargetOnRight)
-                {
-                    _horizontalAxisDirection = _inRangeSpeed; 
-                }
-                else 
-                {
-                    _horizontalAxisDirection = 0; 
-                }
-            }
-
-            
-           
-            //CheckGround();
-
-
-        }
-        private void FixedUpdate()
-        {
-            _rbMovement.HorizontalMove(_horizontalAxisDirection);
-            if (_wallCheck.IsThereWall && _isOnGround)
-            {
-                _rbMovement.Jump();
-            }
-        }
-        IEnumerator OutOfRange()
-        {
-            _targetDetection.IsTargetJustOut = false;
-            _horizontalAxisDirection = 0;
-            _anim.SetBool("IsRunning", false);
-            yield return new WaitForSeconds(2f);
-            _horizontalAxisDirection = Random.Range(1, 3);
-            if (_horizontalAxisDirection == 2) _horizontalAxisDirection = -1;
-        }
-
-
-        //void CheckGround()  // write with GroundCheck
-        //{
-        //    RaycastHit2D hit = Physics2D.Raycast(_rayOrigin2.position, Vector2.down, _maxRayLength2, _layerMask);
-        //    Debug.DrawRay(_rayOrigin2.position, Vector2.down * _maxRayLength2, Color.red);
-        //    if (hit.collider != null)
-        //    {
-        //        _isOnGround = true;
-        //    }
-        //    else
-        //        _isOnGround = false;
-        //}
+ 
+        _flip.FlipCharacter(_horizontalAxis);
     }
 
+    private void FixedUpdate()
+    {
+        _rbMovement.HorizontalMove(_horizontalAxis);
+        if (_wallCheck.IsThereWall && _groundCheck.IsOnGround && _currentState != State.Detection)
+        {
+            _rbMovement.Jump();
+        }
+    }
+    private void StateControl()
+    {
+        _anim.SetFloat("moveSpeed", Mathf.Abs(_horizontalAxis));
+        if (_targetDetection.IsTargetInActionRange)
+        {
+            _currentState = State.ChaseTarget;
+            _anim.SetBool("IsTargetInAction", true);
+            _anim.SetBool("IsTargetInDetection", false);
+        }
+        else if(_targetDetection.IsTargetInDetectionRange)
+        {
+            _currentState = State.Detection;
+            _anim.SetBool("IsTargetInDetection", true);
+            _anim.SetBool("IsTargetInAction", false);
+        }
+        else 
+        {
+            _currentState = State.ChaseOver;
+            _anim.SetBool("IsTargetInAction", false);
+            _anim.SetBool("IsTargetInDetection", false);
+            
+        }
+
+    }
+    private void Detection()
+    {
+        _horizontalAxis = 0;
+    }
+
+    private void ChaseTarget()
+    {
+        if (transform.position.x < _targetDetection.TargetPos.x + 0.5 && transform.position.x > _targetDetection.TargetPos.x - 0.5)
+        {
+            _horizontalAxis = 0;
+        }
+        else if (_targetDetection.IsTargetOnLeft)
+        {
+            _horizontalAxis = -Mathf.Abs(_inRangeSpeed);
+        }
+        else if (_targetDetection.IsTargetOnRight)
+        {
+            _horizontalAxis = Mathf.Abs(_inRangeSpeed);
+        }
+    }
+    private void ChaseOver()
+    {
+        if (transform.position.x < _startPosition.x + 0.5 && transform.position.x > _startPosition.x - 0.5)
+        {
+            _horizontalAxis = 0;
+        }
+        else if (transform.position.x < _startPosition.x)
+        {
+            _horizontalAxis = 1;
+        }
+        else if (transform.position.x > _startPosition.x)
+        {
+            _horizontalAxis = -1;
+        }
+    }
 }

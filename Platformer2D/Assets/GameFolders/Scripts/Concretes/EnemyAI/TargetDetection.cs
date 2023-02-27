@@ -6,31 +6,28 @@ using UnityEngine;
 public class TargetDetection : MonoBehaviour
 {
     [SerializeField] Transform _target;
-    [SerializeField] float _detectRange;
+    [SerializeField][Range(3, 10)] float _detectRange;
+    [SerializeField][Range(3, 20)] float _actionRange;
     float _maxDistance;
-    bool _isTargetInRange;
-    public bool IsTargetJustOut;
+   
 
-    public bool IsTargetInRange { get => _isTargetInRange; }
+    public Vector2 TargetPos => _target.position;
+    public bool IsTargetInActionRange => _maxDistance < _actionRange;
+    public bool IsTargetInDetectionRange=> _maxDistance < _detectRange;
     public bool IsTargetOnLeft => _target.position.x < transform.position.x;
     public bool IsTargetOnRight => _target.position.x > transform.position.x;
+
 
     private void Update()
     {
         _maxDistance = Vector2.Distance(transform.position, _target.position);
-        if (_maxDistance < _detectRange)
-        {
-            _isTargetInRange = true;
-        }
-        else if(_isTargetInRange)
-        {
-            IsTargetJustOut = true;   // making it false in Behaviour (with coroutine), delay before idle state (could be written better?)
-            _isTargetInRange = false;
-        }
+
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _detectRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _actionRange);
     }
 }

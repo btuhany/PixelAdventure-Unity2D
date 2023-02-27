@@ -13,10 +13,14 @@ namespace Movements
     {
         [SerializeField] float _jumpForce=10f;
         [SerializeField] float _horizontalSpeed=10f;
+        private float _horizontalDirection;
 
         Rigidbody2D _rb;
-        public float HorizontalDirection;
+       
         public float VelocityY => _rb.velocity.y;
+
+        public float HorizontalDirection { get => _horizontalDirection; set => _horizontalDirection = value; }
+
         private void Awake()
         {
             _rb= GetComponent<Rigidbody2D>();
@@ -28,7 +32,7 @@ namespace Movements
         }
         public void HorizontalMove(float direction)
         {
-            HorizontalDirection = direction;
+            HorizontalDirection = Mathf.Sign(direction);
 
             //_rb.position += Vector2.right * direction * _horizontalSpeed * Time.deltaTime;
             _rb.velocity = new Vector2(direction * _horizontalSpeed, _rb.velocity.y);
