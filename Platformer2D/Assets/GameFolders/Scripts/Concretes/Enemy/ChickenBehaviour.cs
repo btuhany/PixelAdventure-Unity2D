@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using Combat;
 public class ChickenBehaviour : Enemies
 {
     [SerializeField] float _inRangeSpeed;

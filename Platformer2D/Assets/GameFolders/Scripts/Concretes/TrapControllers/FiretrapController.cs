@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Abstracts;
+using Combat;
 namespace Controllers
 {
     public class FiretrapController : Traps

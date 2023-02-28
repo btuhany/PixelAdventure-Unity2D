@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using Combat;
 public class TrunkBehaviour : Enemies
 {
     [SerializeField] float _maxChangeDirectionTime;

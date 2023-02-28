@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+
+namespace Combat
 {
-    [SerializeField] int _hitDamage;
-
-    public int HitDamage { get => _hitDamage; }
-
-    public void HitTarget(Health health)
+    public class Damage : MonoBehaviour
     {
-        health.TakeHit(this);
+        [SerializeField] int _hitDamage;
+
+        public int HitDamage { get => _hitDamage; }
+
+        public void HitTarget(Health health)
+        {
+            health.TakeHit(this);
+        }
     }
+
 }

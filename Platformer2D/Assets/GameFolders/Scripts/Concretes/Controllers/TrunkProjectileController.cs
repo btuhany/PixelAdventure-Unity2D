@@ -2,6 +2,8 @@ using Movements;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Abstracts;
+using Combat;
 
 public class TrunkProjectileController : Traps
 {

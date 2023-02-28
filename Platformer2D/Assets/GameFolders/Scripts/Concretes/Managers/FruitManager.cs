@@ -8,12 +8,17 @@ namespace Managers
     public class FruitManager : SingletonObject<FruitManager>
     {
         Dictionary<Fruits, int> _fruits = new Dictionary<Fruits, int>();
+        public event System.Action OnFruitNumbersChanged;
         private void Awake()
         {
             SingletonThisObject(this);
             _fruits.Add(Fruits.Banana, 0);
             _fruits.Add(Fruits.Pineapple, 0);
             _fruits.Add(Fruits.Melon, 0);
+        }
+        private void Start()
+        {
+            OnFruitNumbersChanged?.Invoke();
         }
         public int GetFruitNumber(Fruits fruit)
         {
@@ -34,6 +39,7 @@ namespace Managers
         public void IncreaseFruitNumber(Fruits fruit)
         {
             _fruits[fruit]++;
+            OnFruitNumbersChanged?.Invoke();
         }
         public void DecreaseFruitNumber(Fruits fruit, int number)
         {
@@ -42,6 +48,7 @@ namespace Managers
             {
                 _fruits[fruit] = 0;
             }
+            OnFruitNumbersChanged?.Invoke();
         }
         //private void Update()
         //{
