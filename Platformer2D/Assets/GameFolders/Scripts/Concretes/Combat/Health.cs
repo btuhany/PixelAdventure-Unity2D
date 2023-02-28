@@ -16,7 +16,12 @@ namespace Combat
         bool _isInvulnerable;
         int _currentHealth;
         public bool IsDead => _currentHealth <= 0;
-        public event System.Action OnDead;      //////////////////////////////////////
+
+        public int MaxHealth { get => _maxHealth; }
+        public int CurrentHealth { get => _currentHealth;  }
+
+        public event System.Action OnDead;
+        public event System.Action OnHealthChanged;
         CharacterAnimation _anim;
 
         private void Awake()
@@ -26,6 +31,7 @@ namespace Combat
         }
         private void OnEnable()
         {
+            OnHealthChanged?.Invoke();
             OnDead += HandleOnDead;
         }
 
@@ -43,6 +49,7 @@ namespace Combat
             }
 
             _currentHealth -= damage.HitDamage;
+            OnHealthChanged?.Invoke();
             StartCoroutine(HitCooldown());
             if (IsDead)
                 OnDead?.Invoke();
