@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceab8e452cdb404ca9426ab1db6157c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitJumpForce: 20
-  _inRangeSpeed: 3
+  _hitJumpForce: 400
+  _inRangeSpeed: 2
 --- !u!114 &6846319586922496898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fc94e4b0ad9a140939821fc3d5ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 4
+  _jumpForce: 6
   _horizontalSpeed: 1
 --- !u!114 &6846319586922496900
 MonoBehaviour:
@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _detectRange: 7.67
-  _actionRange: 4.93
+  _detectRange: 7.11
+  _actionRange: 4.4
 --- !u!114 &6846319586922496901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rayOrigins:
   - {fileID: 6846319588584801597}
-  _maxRayLength: 1
+  _maxRayLength: 0.4
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -234,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.28596056, y: -0.023841858}
+  m_Offset: {x: 0.070082426, y: -0.023841858}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -245,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.99745584, y: 1.9439163}
+  m_Size: {x: 1.4292121, y: 1.9439163}
   m_EdgeRadius: 0
 --- !u!95 &6846319586922496903
 Animator:

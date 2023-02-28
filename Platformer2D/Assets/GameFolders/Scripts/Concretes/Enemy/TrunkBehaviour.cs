@@ -28,7 +28,8 @@ public class TrunkBehaviour : Enemies
         _flip = GetComponent<Flip>();
     }
     private void Start()
-    {
+    { 
+        
         GetRandomHorizontalAxis();
     }
     private void Update()
@@ -45,6 +46,7 @@ public class TrunkBehaviour : Enemies
     }
     void GetRandomHorizontalAxis()
     {
+        if (_dontChangeDirection) { _horizontalDirection = 1; return; } 
         _horizontalDirection = Random.Range(1, 3);
         if (_horizontalDirection == 2) _horizontalDirection = -1;
     }

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitJumpForce: 500
-  _maxLifeTime: 2
+  _maxLifeTime: 6
 --- !u!114 &6294739936671449533
 MonoBehaviour:
   m_ObjectHideFlags: 0
