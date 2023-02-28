@@ -8,6 +8,8 @@ namespace EnemyAI
 {
     public class SnailBehaviour : Enemies
     {
+        [SerializeField] bool _setStartDirection;
+        [SerializeField] int _startDirection;
         float _horizontalAxisDirection;
         RbMovement _rbMovement;
         Flip _flip;
@@ -24,7 +26,10 @@ namespace EnemyAI
         }
         private void Start()
         {
-            GetRandomHorizontalAxis();
+            if (!_setStartDirection)
+                GetRandomHorizontalAxis();
+            else
+                _horizontalAxisDirection = _startDirection;
         }
         void Update()
         {
