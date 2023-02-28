@@ -8,6 +8,12 @@ namespace Managers
 {
     public class GameManager : SingletonObject<GameManager>
     {
+        public event System.Action OnGameEnd;
+        public void EndGame()
+        {
+            Time.timeScale = 0f;
+            OnGameEnd?.Invoke();
+        }
         private void Awake()
         {
             SingletonThisObject(this);

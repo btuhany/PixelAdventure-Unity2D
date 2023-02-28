@@ -7,9 +7,9 @@ namespace Mechanics
 {
     public class InteractHandler : MonoBehaviour
     {
-
+        LeverController _normalLever;
         GameObject _currentInteractableObject;
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
         {
 
             if (collision.gameObject.CompareTag("InteractableObject"))
@@ -23,12 +23,18 @@ namespace Mechanics
             _currentInteractableObject = null;
         }
 
-        public void Interact()
+        public void Interact()  //could be better 
         {
             if (_currentInteractableObject != null)
             {
-                _currentInteractableObject.gameObject.GetComponent<LeverController>().LeverInteraction();
+                _normalLever = _currentInteractableObject.gameObject.GetComponent<LeverController>();
+                if(_normalLever != null ) 
+                    _normalLever.LeverInteraction();
+                else
+                    _currentInteractableObject.gameObject.GetComponent<LeverTeleportController>().LeverInteraction();
             }
+            
+
         }
     }
 

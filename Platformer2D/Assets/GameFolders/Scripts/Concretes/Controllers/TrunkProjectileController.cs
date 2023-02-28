@@ -8,6 +8,7 @@ using Combat;
 public class TrunkProjectileController : Traps
 {
     [SerializeField] float _maxLifeTime;
+    [SerializeField] float _pushForce;
     RbMovement _rbMovement;
     AddableToObjectPool _objectPool;
     float _direction;
@@ -35,6 +36,11 @@ public class TrunkProjectileController : Traps
         {
             HitTarget(collision);
             MakeTargetJump(collision);
+            collision.attachedRigidbody.AddRelativeForce(new Vector2(_direction * _pushForce, 0));
+            ObjectPoolManager.Instance.SetPool(_objectPool);
+        }
+        else if(collision.gameObject.CompareTag("Box"))
+        {
             ObjectPoolManager.Instance.SetPool(_objectPool);
         }
     }

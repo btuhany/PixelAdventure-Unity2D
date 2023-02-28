@@ -13,7 +13,7 @@ namespace Movements
         {
             _playerCollider = GetComponent<BoxCollider2D>();
         }
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionStay2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("OneWayPlatform"))
                 _currentPlatform = collision.gameObject;

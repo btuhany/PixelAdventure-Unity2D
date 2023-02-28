@@ -19,6 +19,7 @@ namespace Combat
 
         public int MaxHealth { get => _maxHealth; }
         public int CurrentHealth { get => _currentHealth;  }
+        public float CooldownTimeAfterHit { get => _cooldownTimeAfterHit; set => _cooldownTimeAfterHit = value; }
 
         public event System.Action OnDead;
         public event System.Action OnHealthChanged;

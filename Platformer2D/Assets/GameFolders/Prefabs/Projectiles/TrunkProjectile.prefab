@@ -50,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb491879fbe09da479d2fa11821fc9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitJumpForce: 500
+  _hitJumpForce: 250
   _maxLifeTime: 6
+  _pushForce: 100
 --- !u!114 &6294739936671449533
 MonoBehaviour:
   m_ObjectHideFlags: 0
