@@ -6,6 +6,7 @@ using UnityEngine;
 using Inputs;
 using Animations;
 using Mechanics;
+using Managers;
 
 namespace Controllers
 {
@@ -20,6 +21,8 @@ namespace Controllers
         GroundCheck _groundCheck;
         PlatformHandler _platform;
         InteractHandler _interact;
+        private bool _isPaused;
+
         private void Awake()
         {
             _rb= GetComponent<RbMovement>();
@@ -32,6 +35,20 @@ namespace Controllers
         }
         private void Update()
         {
+            if (_input.IsExitButton)
+            {
+                if (_isPaused)
+                {
+                    GameManager.Instance.ResumeGame();
+                    _isPaused = false;
+                }
+                else
+                {
+                    GameManager.Instance.PauseGame();
+                    _isPaused = true;
+                }
+            }
+            if (_isPaused) return;
             _horizontalAxis = _input.HorizontalAxis;
             if (_input.IsJumpButtonDown && _groundCheck.IsOnGround)
             {
@@ -43,7 +60,6 @@ namespace Controllers
             {
                 _interact.Interact();
             }
-           
             _anim.JumpAnFallAnim(_groundCheck.IsOnGround, _rb.VelocityY);
             _anim.HorizontalAnim(_horizontalAxis);
             _flip.FlipCharacter(_horizontalAxis);

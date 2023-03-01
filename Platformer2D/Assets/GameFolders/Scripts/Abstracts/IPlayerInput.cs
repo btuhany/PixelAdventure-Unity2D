@@ -11,5 +11,6 @@ namespace Abstracts.Input
         bool IsJumpButton { get; }
         bool IsDownButton { get; }
         bool IsInteractButton { get; }
+        bool IsExitButton { get; }
     }
 }

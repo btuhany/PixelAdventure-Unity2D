@@ -8,11 +8,30 @@ namespace Managers
 {
     public class GameManager : SingletonObject<GameManager>
     {
+        public bool IsGamePaused;
         public event System.Action OnGameEnd;
+        public event System.Action OnGamePaused;
+        public event System.Action OnGameResumed;
         public void EndGame()
         {
             Time.timeScale = 0f;
             OnGameEnd?.Invoke();
+        }
+        public void PauseGame()
+        {
+            if (IsGamePaused) return;
+            IsGamePaused = true;
+            Time.timeScale = 0f;
+            OnGamePaused?.Invoke();
+
+        }
+        public void ResumeGame()
+        {
+            if (!IsGamePaused) return;
+            IsGamePaused = false;
+            Time.timeScale = 1f;
+            OnGameResumed?.Invoke();
+
         }
         private void Awake()
         {
