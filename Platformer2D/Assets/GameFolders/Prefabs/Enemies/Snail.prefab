@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitJumpForce: 300
+  _setStartDirection: 0
+  _startDirection: 0
 --- !u!114 &4033263654450577540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +254,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: db3e5ae2985a926498afe8daf409cdf4, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

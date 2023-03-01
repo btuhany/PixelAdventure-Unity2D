@@ -13,7 +13,7 @@ namespace UI
         }
         public void SkipTutorialClick()
         {
-            GameManager.Instance.LoadScene(1);
+            GameManager.Instance.LoadSceneFromIndex(1);
         }
     }
 

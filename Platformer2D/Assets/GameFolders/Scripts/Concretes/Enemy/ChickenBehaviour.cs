@@ -84,6 +84,11 @@ public class ChickenBehaviour : Enemies
                 deathFx.gameObject.SetActive(true);
                 Destroy(gameObject,0.5f);
             }
+            else if(collision.GetContact(0).normal.y == 1)
+            {
+                HitTarget(collision);
+
+            }
             else
             {
                 HitTarget(collision);

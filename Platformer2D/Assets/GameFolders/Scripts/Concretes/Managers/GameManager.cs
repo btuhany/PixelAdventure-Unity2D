@@ -18,6 +18,10 @@ namespace Managers
         {
             SingletonThisObject(this);
         }
+        public void LoadSceneFromIndex(int sceneIndex = 0)
+        {
+            StartCoroutine(LoadSceneFromIndexAsync(sceneIndex));
+        }
         public void LoadScene(int sceneIndex = 0)
         {
             StartCoroutine(LoadSceneAsync(sceneIndex));
@@ -27,9 +31,13 @@ namespace Managers
             Debug.Log("Exit");
             Application.Quit();
         }
-        private IEnumerator LoadSceneAsync(int sceneIndex)
+        private IEnumerator LoadSceneFromIndexAsync(int sceneIndex)
         {
             yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + sceneIndex);
+        }
+        private IEnumerator LoadSceneAsync(int sceneIndex)
+        {
+            yield return SceneManager.LoadSceneAsync(sceneIndex);
         }
     }
 }
