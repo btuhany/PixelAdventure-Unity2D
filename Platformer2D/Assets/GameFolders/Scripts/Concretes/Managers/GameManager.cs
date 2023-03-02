@@ -42,9 +42,8 @@ namespace Managers
         }
         public void RestartGame()
         {
+           
             LoadSceneFromIndex(0);
-            Time.timeScale = 1f;
-            UnpauseGame();
         }
 
         public void ExitGame()
@@ -54,10 +53,14 @@ namespace Managers
         }
         public void LoadSceneFromIndex(int sceneIndex = 0)
         {
+            FruitManager.Instance.ResetFruits();
+           if (IsGamePaused) UnpauseGame();
             StartCoroutine(LoadSceneFromIndexAsync(sceneIndex));
         }
         public void LoadScene(int sceneIndex = 0)
         {
+            FruitManager.Instance.ResetFruits();
+            if (IsGamePaused) UnpauseGame();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
         private IEnumerator LoadSceneFromIndexAsync(int sceneIndex)

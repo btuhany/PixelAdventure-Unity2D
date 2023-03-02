@@ -12,12 +12,18 @@ namespace Managers
         private void Awake()
         {
             SingletonThisObject(this);
-            _fruits.Add(Fruits.Banana, 0);
-            _fruits.Add(Fruits.Pineapple, 0);
-            _fruits.Add(Fruits.Melon, 0);
+            ResetFruits();
         }
         private void Start()
         {
+            OnFruitNumbersChanged?.Invoke();
+        }
+        public void ResetFruits()
+        {
+            _fruits.Clear();
+            _fruits.Add(Fruits.Banana, 0);
+            _fruits.Add(Fruits.Pineapple, 0);
+            _fruits.Add(Fruits.Melon, 0);
             OnFruitNumbersChanged?.Invoke();
         }
         public int GetFruitNumber(Fruits fruit)

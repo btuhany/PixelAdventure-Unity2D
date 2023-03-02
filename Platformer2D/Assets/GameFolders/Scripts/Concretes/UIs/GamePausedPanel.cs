@@ -13,4 +13,8 @@ public class GamePausedPanel : GameEndPanel
     {
         GameManager.Instance.LoadScene(1);
     }
+    public void SeeNextLevel()
+    {
+        GameManager.Instance.LoadSceneFromIndex(1);
+    }
 }

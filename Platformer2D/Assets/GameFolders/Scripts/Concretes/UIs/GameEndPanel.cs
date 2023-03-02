@@ -17,6 +17,14 @@ public class GameEndPanel : MonoBehaviour
     {
         GameManager.Instance.ExitGame();
     }
+    public void NextLevelClick()
+    {
+        GameManager.Instance.LoadSceneFromIndex(1);
+    }
+    public void PreviousLevelClick()
+    {
+        GameManager.Instance.LoadSceneFromIndex(-1);
+    }
 }
 
 

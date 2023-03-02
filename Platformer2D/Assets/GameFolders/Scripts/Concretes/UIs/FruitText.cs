@@ -14,10 +14,19 @@ namespace UI
         private void Awake()
         {
             _textMesh = GetComponent<TextMeshProUGUI>();
+           
         }
         private void OnEnable()
         {
             FruitManager.Instance.OnFruitNumbersChanged += HandleOnFruitsNumberChanged;
+        }
+        private void Start()
+        {
+            HandleOnFruitsNumberChanged();
+        }
+        private void OnDisable()
+        {
+            FruitManager.Instance.OnFruitNumbersChanged -= HandleOnFruitsNumberChanged;
         }
 
         private void HandleOnFruitsNumberChanged()
