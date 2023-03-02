@@ -50,6 +50,10 @@ namespace Managers
             }
             OnFruitNumbersChanged?.Invoke();
         }
+        private void Reset()
+        {
+            
+        }
         //private void Update()
         //{
         //    //Delete update

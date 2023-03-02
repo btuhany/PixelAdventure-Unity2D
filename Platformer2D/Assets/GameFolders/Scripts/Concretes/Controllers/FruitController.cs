@@ -10,17 +10,21 @@ namespace Controllers
     {
         [SerializeField] Fruits _fruitType;
         Animator _anim;
+        bool _isCollected;
         private void Awake()
         {
             _anim = GetComponent<Animator>();
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player") && !_isCollected)
             {
+                
                 FruitManager.Instance.IncreaseFruitNumber(_fruitType);
                 _anim.Play("Collected");
+                _isCollected = true;
                 Destroy(this.gameObject, 0.5f);
+
             }
         }
     }
