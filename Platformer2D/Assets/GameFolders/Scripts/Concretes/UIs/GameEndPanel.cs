@@ -11,7 +11,7 @@ public class GameEndPanel : MonoBehaviour
     }
     public void PlayAgainClick()
     {
-        GameManager.Instance.LoadSceneFromIndex(0);
+        GameManager.Instance.RestartGame();
     }
     public void ExitClick()
     {

@@ -9,33 +9,48 @@ namespace Managers
     public class GameManager : SingletonObject<GameManager>
     {
         public bool IsGamePaused;
+        public bool IsGameEnded;
         public event System.Action OnGameEnd;
         public event System.Action OnGamePaused;
-        public event System.Action OnGameResumed;
+        public event System.Action OnGameUnpaused;
+        private void Awake()
+        {
+            SingletonThisObject(this);
+        }
+
         public void EndGame()
         {
+            IsGameEnded = true;
             Time.timeScale = 0f;
             OnGameEnd?.Invoke();
         }
         public void PauseGame()
         {
-            if (IsGamePaused) return;
+            if (IsGamePaused || IsGameEnded) return;
             IsGamePaused = true;
             Time.timeScale = 0f;
             OnGamePaused?.Invoke();
 
         }
-        public void ResumeGame()
+        public void UnpauseGame()
         {
-            if (!IsGamePaused) return;
+ 
+            if (!IsGamePaused || IsGameEnded) return;
             IsGamePaused = false;
             Time.timeScale = 1f;
-            OnGameResumed?.Invoke();
-
+            OnGameUnpaused?.Invoke();
         }
-        private void Awake()
+        public void RestartGame()
         {
-            SingletonThisObject(this);
+            LoadSceneFromIndex(0);
+            Time.timeScale = 1f;
+            UnpauseGame();
+        }
+
+        public void ExitGame()
+        {
+            Debug.Log("Exit");
+            Application.Quit();
         }
         public void LoadSceneFromIndex(int sceneIndex = 0)
         {
@@ -44,11 +59,6 @@ namespace Managers
         public void LoadScene(int sceneIndex = 0)
         {
             StartCoroutine(LoadSceneAsync(sceneIndex));
-        }
-        public void ExitGame()
-        {
-            Debug.Log("Exit");
-            Application.Quit();
         }
         private IEnumerator LoadSceneFromIndexAsync(int sceneIndex)
         {

@@ -7,6 +7,7 @@ using Inputs;
 using Animations;
 using Mechanics;
 using Managers;
+using System;
 
 namespace Controllers
 {
@@ -33,19 +34,29 @@ namespace Controllers
             _interact = GetComponent<InteractHandler>();
             _input = new PcInput();
         }
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGamePaused += HandleGamePaused;
+            GameManager.Instance.OnGameUnpaused += HandleGameUnpaused;
+        }
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGamePaused -= HandleGamePaused;
+            GameManager.Instance.OnGameUnpaused -= HandleGameUnpaused;
+        }
+
+
         private void Update()
         {
             if (_input.IsExitButton)
             {
                 if (_isPaused)
                 {
-                    GameManager.Instance.ResumeGame();
-                    _isPaused = false;
+                    GameManager.Instance.UnpauseGame();
                 }
                 else
                 {
                     GameManager.Instance.PauseGame();
-                    _isPaused = true;
                 }
             }
             if (_isPaused) return;
@@ -72,6 +83,15 @@ namespace Controllers
                 _rb.Jump();
                 _isJumped = false;
             }
+        }
+        private void HandleGameUnpaused()
+        {
+            _isPaused= false;
+        }
+
+        private void HandleGamePaused()
+        {
+            _isPaused = true;
         }
 
     }
