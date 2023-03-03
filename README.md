@@ -21,13 +21,14 @@ I used three enemies: Chicken, Snail and Truck.
 
 
 ## There are 2 levels and one tutorial section.
+Tutorial
+<img src="refimg/tutorial.JPG" width="1000" >
 Level1
 <img src="refimg/level1.JPG" width="1000" >
 Level2
 <img src="refimg/level2.JPG" width="1000" >
 
-#Images
-Tutorial
-<img src="refimg/tutorial.JPG" width="500" ><img src="refimg/1.JPG" width="500" >
-<img src="refimg/2.JPG" width="500" ><img src="refimg/3.JPG" width="500" >
-<img src="refimg/4.JPG" width="500" >
+# InGame
+<img src="refimg/1.JPG" width="500" ><img src="refimg/2.JPG" width="500" >
+<img src="refimg/3.JPG" width="500" ><img src="refimg/4.JPG" width="500" >
+
