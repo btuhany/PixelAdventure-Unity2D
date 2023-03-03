@@ -3012,6 +3012,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457854092, guid: be1f6c2342cf00a46b837dc5918665a8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1252.565
+      objectReference: {fileID: 0}
+    - target: {fileID: 457854092, guid: be1f6c2342cf00a46b837dc5918665a8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 281.17383
+      objectReference: {fileID: 0}
+    - target: {fileID: 457854093, guid: be1f6c2342cf00a46b837dc5918665a8, type: 3}
+      propertyPath: m_text
+      value: "Impressive... \nYou completed the level! \nReady for the next one?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 457854093, guid: be1f6c2342cf00a46b837dc5918665a8, type: 3}
+      propertyPath: m_fontSize
+      value: 118.6
+      objectReference: {fileID: 0}
     - target: {fileID: 766566618, guid: be1f6c2342cf00a46b837dc5918665a8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10552,7 +10568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432146621831184356, guid: e979b765b650c024cb2c51674fa03d96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.02
+      value: 39.9
       objectReference: {fileID: 0}
     - target: {fileID: 4432146621831184356, guid: e979b765b650c024cb2c51674fa03d96, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10600,7 +10616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432146622058138038, guid: e979b765b650c024cb2c51674fa03d96, type: 3}
       propertyPath: _zRotation
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4432146622279541031, guid: e979b765b650c024cb2c51674fa03d96, type: 3}
       propertyPath: m_ConnectedAnchor.y
