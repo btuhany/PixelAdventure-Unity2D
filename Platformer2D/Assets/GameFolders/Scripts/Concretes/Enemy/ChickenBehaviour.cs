@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Combat;
+using Managers;
+
 public class ChickenBehaviour : Enemies
 {
     [SerializeField] float _inRangeSpeed;
@@ -82,6 +84,7 @@ public class ChickenBehaviour : Enemies
                 AddableToObjectPool deathFx = ObjectPoolManager.Instance.GetFromPool(PoolObjectsEnum.DeathEfx);
                 deathFx.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -4.3f);
                 deathFx.gameObject.SetActive(true);
+                SoundManager.Instance.PlaySound(9);
                 Destroy(gameObject,0.5f);
             }
             else if(collision.GetContact(0).normal.y == 1)

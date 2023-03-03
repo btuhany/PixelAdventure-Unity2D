@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Combat;
+using Managers;
+
 public class CheckpointsManager : MonoBehaviour
 {
     [SerializeField] Health _playerHealth;
@@ -20,6 +22,7 @@ public class CheckpointsManager : MonoBehaviour
     }
     public void HandleOnDead()
     {
+        SoundManager.Instance.PlaySound(10);
         if(_checkpoints.LastOrDefault(x => x.IsChecked) == null)
             _playerHealth.transform.position = _startpoint.transform.position;
         else

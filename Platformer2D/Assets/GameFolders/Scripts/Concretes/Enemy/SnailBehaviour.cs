@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using Combat;
+using Managers;
+
 namespace EnemyAI
 {
     public class SnailBehaviour : Enemies
@@ -64,6 +66,7 @@ namespace EnemyAI
                     deathFx.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -4.3f);
                     deathFx.gameObject.SetActive(true);
                     Destroy(gameObject,0.5f);
+                    SoundManager.Instance.PlaySound(9);
                 }
                 else if (collision.GetContact(0).normal.y == 1)
                 {

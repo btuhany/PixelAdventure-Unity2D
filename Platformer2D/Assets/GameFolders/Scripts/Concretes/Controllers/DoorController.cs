@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Controllers
         }
         public void OpenDoor()
         {
+            SoundManager.Instance.PlaySound(12);
             _anim.SetBool("IsOpen", true);
         }
         public void CloseDoor()

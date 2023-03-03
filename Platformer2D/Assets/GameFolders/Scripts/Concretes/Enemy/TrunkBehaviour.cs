@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Combat;
+using Managers;
+
 public class TrunkBehaviour : Enemies
 {
     [SerializeField] float _maxChangeDirectionTime;
@@ -100,6 +102,7 @@ public class TrunkBehaviour : Enemies
                 deathFx.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -4.3f);
                 deathFx.gameObject.SetActive(true);
                 Destroy(gameObject,0.5f);
+                SoundManager.Instance.PlaySound(9);
             }
             else
             {

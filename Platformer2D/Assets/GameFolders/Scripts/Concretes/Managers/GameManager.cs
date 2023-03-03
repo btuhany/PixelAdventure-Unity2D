@@ -53,12 +53,18 @@ namespace Managers
         }
         public void LoadSceneFromIndex(int sceneIndex = 0)
         {
+            SoundManager.Instance.StopAllSounds();
+            SoundManager.Instance.PlaySound(3);
+            SoundManager.Instance.PlaySound(8);
             FruitManager.Instance.ResetFruits();
            if (IsGamePaused) UnpauseGame();
             StartCoroutine(LoadSceneFromIndexAsync(sceneIndex));
         }
         public void LoadScene(int sceneIndex = 0)
         {
+            SoundManager.Instance.StopAllSounds();
+            SoundManager.Instance.PlaySound(3);
+            SoundManager.Instance.PlaySound(8);
             FruitManager.Instance.ResetFruits();
             if (IsGamePaused) UnpauseGame();
             StartCoroutine(LoadSceneAsync(sceneIndex));

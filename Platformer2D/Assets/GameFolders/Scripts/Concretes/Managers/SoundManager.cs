@@ -10,7 +10,7 @@ namespace Managers
     {
         AudioSource[] _audioSource;
         [SerializeField] float _fadeSpeed;
-        float[] _volumes = new float[10];
+        float[] _volumes = new float[16];
         private void Awake()
         {
             SingletonThisObject(this);
