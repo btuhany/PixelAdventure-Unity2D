@@ -9,6 +9,7 @@ namespace Managers
     public class SoundManager : SingletonObject<SoundManager>
     {
         AudioSource[] _audioSource;
+        [SerializeField] float _fadeSpeed;
         float[] _volumes = new float[10];
         private void Awake()
         {
@@ -17,7 +18,8 @@ namespace Managers
         }
         private void Start()
         {
-            //StartCoroutine(InitialVolumes());
+            _audioSource[8].Play();
+            StartCoroutine(InitialVolumes());
         }
         public float GetInitialVolume(int index)
         {
@@ -27,17 +29,17 @@ namespace Managers
         {
             if (!_audioSource[index].isPlaying)
             {
-                _audioSource[index].volume = _volumes[index];
+               _audioSource[index].volume = _volumes[index];
                 _audioSource[index].Play();
             }
         }
-        public void StopSound(int index, float fadeSpeed)
+        public void StopSound(int index)
         {
             if (_audioSource[index].isPlaying)
             {
 
-                //StartCoroutine(FadeOut(index, fadeSpeed));
-                _audioSource[index].Stop();
+                StartCoroutine(FadeOut(index, _fadeSpeed));
+               // _audioSource[index].Stop();
             }
         }
 
@@ -61,32 +63,32 @@ namespace Managers
 
         }
 
-        //FadeOut prevents the popping sound after the stopping the sound.
-        //IEnumerator FadeOut(int index, float fadeSpeed)
-        //{
+      //  FadeOut prevents the popping sound after the stopping the sound.
+        IEnumerator FadeOut(int index, float fadeSpeed)
+        {
 
-        //    while (_audioSource[index].volume > 0.01f)
-        //    {
+            while (_audioSource[index].volume > 0.01f)
+            {
 
-        //        _audioSource[index].volume = _audioSource[index].volume - Time.deltaTime / fadeSpeed;
-        //        yield return null;
-        //    }
+                _audioSource[index].volume = _audioSource[index].volume - Time.deltaTime / fadeSpeed;
+                yield return null;
+            }
 
-        //    if (_audioSource[index].volume <= 0.01f)
-        //        _audioSource[index].Stop();
-
-
+            if (_audioSource[index].volume <= 0.01f)
+                _audioSource[index].Stop();
 
 
-        //}
 
-        //IEnumerator InitialVolumes()
-        //{
-        //    for (int i = 0; i < _audioSource.Length; i++)
-        //    {
-        //        _volumes[i] = _audioSource[i].volume;
-        //    }
-        //    yield return null;
-        //}
+
+        }
+
+        IEnumerator InitialVolumes()
+        {
+            for (int i = 0; i < _audioSource.Length; i++)
+            {
+                _volumes[i] = _audioSource[i].volume;
+            }
+            yield return null;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Controllers
         {
             if (collision.gameObject.CompareTag("Player") && !_isCollected)
             {
-                
+                SoundManager.Instance.PlaySound(5);
                 FruitManager.Instance.IncreaseFruitNumber(_fruitType);
                 _anim.Play("Collected");
                 _isCollected = true;

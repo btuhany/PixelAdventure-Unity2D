@@ -22,6 +22,7 @@ namespace Controllers
             if (!CanLeverWork)
             {
                 TryActivateLever();
+                
             }
             else
                 TriggerLever();
@@ -36,9 +37,12 @@ namespace Controllers
                 _checkMark.SetActive(true);
                 _leverFruits.SetActive(false);
             }
+            else
+                SoundManager.Instance.PlaySound(7);
         }
         private void TriggerLever()
         {
+            SoundManager.Instance.PlaySound(6);
             if (IsLeverOn)
                 LeverOff();
             else

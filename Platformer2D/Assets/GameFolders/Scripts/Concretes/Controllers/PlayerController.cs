@@ -50,17 +50,24 @@ namespace Controllers
         {
             if (_input.IsExitButton)
             {
+                SoundManager.Instance.PlaySound(2);
                 if (_isPaused)
                 {
                     GameManager.Instance.UnpauseGame();
+                    
                 }
                 else
                 {
                     GameManager.Instance.PauseGame();
+                    
                 }
             }
             if (_isPaused) return;
             _horizontalAxis = _input.HorizontalAxis;
+
+            if(_horizontalAxis!=0 && _groundCheck.IsOnGround) SoundManager.Instance.PlaySound(1);
+            else SoundManager.Instance.StopSound(1);
+
             if (_input.IsJumpButtonDown && _groundCheck.IsOnGround)
             {
                 _isJumped = true;               
@@ -80,6 +87,7 @@ namespace Controllers
             _rb.HorizontalMove(_horizontalAxis);  //if a gameObject has rb, dont use transform for movement
             if (_isJumped )
             {
+                SoundManager.Instance.PlaySound(0);
                 _rb.Jump();
                 _isJumped = false;
             }

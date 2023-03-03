@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Animations
         }
         public void AppearAnim(float delay)
         {
+            SoundManager.Instance.PlaySound(3);
             _anim.SetBool("IsAppearing", true);
             StartCoroutine(AnimationFinishDelay(delay));
         }
@@ -38,6 +40,7 @@ namespace Animations
         }
         public void TakeHitAnim(bool isInvulnerable)
         {
+           
             _anim.SetBool("TakeHit", isInvulnerable);
         }
 

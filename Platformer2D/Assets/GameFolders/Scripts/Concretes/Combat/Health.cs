@@ -1,4 +1,5 @@
 using Animations;
+using Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace Combat
             {
                 return;
             }
-
+            SoundManager.Instance.PlaySound(4);
             _currentHealth -= damage.HitDamage;
             OnHealthChanged?.Invoke();
             StartCoroutine(HitCooldown());
