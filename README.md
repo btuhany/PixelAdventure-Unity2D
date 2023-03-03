@@ -29,6 +29,6 @@ Level2
 <img src="refimg/level2.JPG" width="1000" >
 
 # InGame
-<img src="refimg/1.JPG" width="500" ><img src="refimg/2.JPG" width="500" >
-<img src="refimg/3.JPG" width="500" ><img src="refimg/4.JPG" width="500" >
+<img src="refimg/1.JPG" width="500" >  <img src="refimg/2.JPG" width="500" >
+<img src="refimg/3.JPG" width="500" >  <img src="refimg/4.JPG" width="500" >
 
