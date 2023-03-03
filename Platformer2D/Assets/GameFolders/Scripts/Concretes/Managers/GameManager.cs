@@ -40,9 +40,9 @@ namespace Managers
             Time.timeScale = 1f;
             OnGameUnpaused?.Invoke();
         }
+        
         public void RestartGame()
         {
-           
             LoadSceneFromIndex(0);
         }
 
@@ -53,21 +53,24 @@ namespace Managers
         }
         public void LoadSceneFromIndex(int sceneIndex = 0)
         {
-            SoundManager.Instance.StopAllSounds();
-            SoundManager.Instance.PlaySound(3);
-            SoundManager.Instance.PlaySound(8);
-            FruitManager.Instance.ResetFruits();
-           if (IsGamePaused) UnpauseGame();
+            ResetGame();
             StartCoroutine(LoadSceneFromIndexAsync(sceneIndex));
         }
         public void LoadScene(int sceneIndex = 0)
+        {
+            ResetGame();
+            StartCoroutine(LoadSceneAsync(sceneIndex));
+        }
+        private void ResetGame()
         {
             SoundManager.Instance.StopAllSounds();
             SoundManager.Instance.PlaySound(3);
             SoundManager.Instance.PlaySound(8);
             FruitManager.Instance.ResetFruits();
-            if (IsGamePaused) UnpauseGame();
-            StartCoroutine(LoadSceneAsync(sceneIndex));
+            IsGamePaused= false;
+            IsGameEnded = false;
+            Time.timeScale = 1f;
+            
         }
         private IEnumerator LoadSceneFromIndexAsync(int sceneIndex)
         {

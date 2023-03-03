@@ -16,7 +16,7 @@ public class FlyingPlatformController : MonoBehaviour
     private void FixedUpdate()   // To prevent camera stuttering when player on the platform. Stuttering in Update()
     {
 
-        sinWave = Mathf.Sin(Time.time * _moveSpeed);
+        sinWave = Mathf.Sin(Time.timeSinceLevelLoad* _moveSpeed);
         if (!_moveAtStart) return;
         
         _offset = _direction.normalized * _length * sinWave;

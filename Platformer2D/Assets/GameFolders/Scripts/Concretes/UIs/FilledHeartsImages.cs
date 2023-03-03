@@ -21,6 +21,10 @@ namespace UIs
             _playerHealth.OnHealthChanged += HandleHealthChanged;
             _playerHealth.OnDead += HandleOnDead;
         }
+        private void Start()
+        {
+            HandleHealthChanged();
+        }
 
         private void HandleOnDead()
         {

@@ -1,4 +1,5 @@
 using Controllers;
+using Managers;
 using Movements;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace Controllers
         void PlayAnimation()
         {
             _anim.SetTrigger("IsJumped");
+            SoundManager.Instance.PlaySound(15);
         }
 
 

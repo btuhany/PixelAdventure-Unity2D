@@ -32,7 +32,7 @@ namespace Controllers
         private void Update()
         {
 
-            if (Time.time < _startDelay) return;
+            if (Time.timeSinceLevelLoad < _startDelay) return;
             _currentTime += Time.deltaTime;
             if (_currentTime > _maxTime)
             {

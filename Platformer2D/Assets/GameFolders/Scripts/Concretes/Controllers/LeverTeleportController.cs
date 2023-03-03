@@ -36,8 +36,10 @@ namespace Controllers
         }
         private void LeverOn()
         {
+            SoundManager.Instance.PlaySound(6);
             _followingCam.m_Lens.OrthographicSize = _lensValue;
             _playerAnim.SetTrigger("IsAppear");
+            SoundManager.Instance.PlaySound(3);
             IsLeverOn = true;
             _anim.SetBool("IsActive", true);
             _player.transform.position = _teleportPos.position;
@@ -45,6 +47,7 @@ namespace Controllers
         }
         private void LeverOff()
         {
+            SoundManager.Instance.PlaySound(7);
             IsLeverOn = false;
             _anim.SetBool("IsActive", false);
 

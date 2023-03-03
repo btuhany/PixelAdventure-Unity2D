@@ -17,12 +17,13 @@ public class CheckpointController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if(!_isChecked)
+
+        if (!_isChecked && collision.gameObject.CompareTag("Player"))
         {
             _anim.SetBool("FlagOut", true);
-            SoundManager.Instance.PlaySound(11);
+           SoundManager.Instance.PlaySound(11);
+            _isChecked = true;
+            
         }
-        _isChecked = true;
     }
 }
