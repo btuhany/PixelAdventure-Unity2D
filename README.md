@@ -22,7 +22,7 @@ I used three enemies: Chicken, Snail and Truck.
 
 ## There are 2 levels and one tutorial section.
 Tutorial
-<img src="refimg/tutorial.JPG" width="1000" >
+<img src="refimg/tutorial2.JPG" width="1000" >
 Level1
 <img src="refimg/level1.JPG" width="1000" >
 Level2
