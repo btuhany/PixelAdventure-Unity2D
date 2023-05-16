@@ -1,5 +1,5 @@
 # Pixel Adventure
-
+Gameplay video: https://youtu.be/OtLCkJO_Nxg
 https://btuhan.itch.io/pixel-adventure
 This is a 2D puzzle-platformer game. I used sprites from mainly PixelAdventure asset set which is free and can be downloaded from Unity Assets Store. I needed "lever" sprites so i created one and its animations from Aseprite which can be found in Art folder.
 
